@@ -1,6 +1,6 @@
 difficulty 3
 
-description "A file has been modified, but you don't want to keep the files.  Checkout the `config.rb` file from the last commit."
+description "pull rebase"
 
 setup do
   repo.init
@@ -21,7 +21,6 @@ setup do
   end
 
   repo.add("config.rb")
-  repo.commit_all("Modified config.rb")
 end
 
 solution do
