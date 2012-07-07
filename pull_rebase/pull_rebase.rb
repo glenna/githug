@@ -3,7 +3,7 @@ difficulty 3
 description "pull rebase"
 
 setup do
-  repo.init
+  init_from_level
   File.open("config.rb", "w") do |file|
     file.puts("This is the initial config file")
   end
