@@ -4,6 +4,7 @@ description "pull rebase"
 
 setup do
   repo.init
+  repo.checkout("master")
   File.open("config.rb", "w") do |file|
     file.puts("This is the initial config file")
   end
@@ -15,13 +16,13 @@ setup do
 
   repo.add("config.rb")
   repo.commit_all("Added initial files")
-  repo.push
 
   File.open("config.rb", "w") do |file|
     file.puts("This is different than what was in the original config file")
   end
 
   repo.add("config.rb")
+  repo.commit("laksjfd")
 end
 
 solution do
