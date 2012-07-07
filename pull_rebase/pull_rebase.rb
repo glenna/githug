@@ -15,6 +15,7 @@ setup do
 
   repo.add("config.rb")
   repo.commit_all("Added initial files")
+  repo.push
 
   File.open("config.rb", "w") do |file|
     file.puts("This is different than what was in the original config file")
