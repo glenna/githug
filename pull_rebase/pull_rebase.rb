@@ -14,10 +14,10 @@ setup do
   end
 
   repo.add("config.rb")
-  repo.commit_all("Added initial config file")
+  repo.commit_all("Added initial files")
 
   File.open("config.rb", "w") do |file|
-    file.puts("These are changed you don't want to keep!")
+    file.puts("This is different than what was in the original config file")
   end
 
   repo.add("config.rb")
@@ -25,9 +25,11 @@ setup do
 end
 
 solution do
-  repo.status.files["config.rb"].type != "M" && repo.commits.length == 1
+  file = request "What file is in conflict"
+  return false unless file == "config.rb"
+  true
 end
 
 hint do
-  puts "You will need to do some research on the checkout command for this one."
+  puts "You will need to do some research on the rebase flag of the pull command for this one."
 end
